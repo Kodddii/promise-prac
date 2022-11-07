@@ -89,7 +89,9 @@ const success4 = new Promise((resolve, reject) => {
 })
 const success5 = new Promise((resolve, reject) => {
   resolve('5')
-})
+});
+
+
 // const failure = new Promise((resolve, reject) => {
 //   setTimeout(reject, 6000, '1')
 // });
@@ -99,16 +101,26 @@ const success5 = new Promise((resolve, reject) => {
 
 // const promises = [success, success2 , success3, failure, failure2]
 // const resolvePromisesSetTimeout = [success, success2, success3]
-const resolvePromises = [success, success2, success4, success5]
+
+// const resolvePromises = [success, success2, success4, success5]
+
 // const rejectPromises = [failure, failure2];
 
-// console.log(resolvePromises);
-Promise.all(resolvePromises)
-  .then((values) => {
-    console.log('resolve', values);
-  })
-  .catch((reason) => {
-    console.log('reject', reason)
-  })
+(async () => {
+  const resolvePromises = [success, success2, success4, success5]
+  let database: any[] = [];
+  // console.log(resolvePromises);
+  await Promise.all(resolvePromises)
+    .then((values) => {
+      values.map((data:any) => {
+        database.push(data);
+      })
+    })
+    .catch((reason) => {
+      console.log('reject', reason)
+    })
 
+
+  console.log(database);
+})()
 
