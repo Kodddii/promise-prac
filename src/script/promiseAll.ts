@@ -90,16 +90,16 @@ const success4 = new Promise((resolve, reject) => {
 const success5 = new Promise((resolve, reject) => {
   resolve('5')
 })
-const failure = new Promise((resolve, reject) => {
-  setTimeout(reject, 6000, '1')
-});
+// const failure = new Promise((resolve, reject) => {
+//   setTimeout(reject, 6000, '1')
+// });
 // const failure2 = new Promise((resolve, reject) => {
 //   setTimeout(reject, 3000, '2')
 // });
 
 // const promises = [success, success2 , success3, failure, failure2]
 // const resolvePromisesSetTimeout = [success, success2, success3]
-const resolvePromises = [success, success2, success4, success5, failure]
+const resolvePromises = [success, success2, success4, success5]
 // const rejectPromises = [failure, failure2];
 
 // console.log(resolvePromises);
